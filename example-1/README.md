@@ -1,8 +1,8 @@
-# Getting Started
+# Example 1
 
-Welcome to your new project.
+Welcome to example 1 project.
 
-It contains these folders and files, following our recommended project layout:
+This example contains a full stack application using only cds and fiori elements annotations:
 
 File or Folder | Purpose
 ---------|----------
