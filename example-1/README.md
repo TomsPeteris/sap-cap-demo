@@ -1,8 +1,9 @@
-# Example 1
+## Example 1
 
 Welcome to example 1 project.
 
-This example contains a full stack application using only cds and fiori elements annotations:
+This example contains a full stack application using only cds and fiori elements annotations.
+
 
 File or Folder | Purpose
 ---------|----------
@@ -10,15 +11,12 @@ File or Folder | Purpose
 `db/` | your domain models and data go here
 `srv/` | your service models and code go here
 `package.json` | project metadata and configuration
-`readme.md` | this getting started guide
 
 
-## Next Steps
+## Steps to Run the Application
 
-- Open a new terminal and run `cds watch` 
-- (in VS Code simply choose _**Terminal** > Run Task > cds watch_)
-- Start adding content, for example, a [db/schema.cds](db/schema.cds).
-
+- Open a new terminal and run `npm install`
+- Then run `cds watch` 
 
 ## Learn More
 
