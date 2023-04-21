@@ -1,0 +1,114 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"id": "interns",
+		"type": "application",
+		"title": "Manage Interns",
+		"description": "Sample Application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.1.0"
+		},
+		"dataSources": {
+			"InternsService": {
+				"uri": "interns/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "4.0"
+				}
+			}
+		},
+		"-sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"-id": "ui5template.smartTemplate",
+			"-version": "1.40.12"
+		}
+	},
+	"sap.cloud": {
+		"public": true,
+		"service": "demo"
+	},
+	"sap.ui5": {
+		"dependencies": {
+			"libs": {
+				"sap.fe.templates": {}
+			}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			},
+			"": {
+				"dataSource": "InternsService",
+				"settings": {
+					"synchronizationMode": "None",
+					"operationMode": "Server",
+					"autoExpandSelect": true,
+					"earlyRequests": true,
+					"groupProperties": {
+						"default": {
+							"submit": "Auto"
+						}
+					}
+				}
+			}
+		},
+		"routing": {
+			"routes": [
+				{
+					"pattern": ":?query:",
+					"name": "InternsList",
+					"target": "InternsList"
+				},
+				{
+					"pattern": "Interns({key}):?query:",
+					"name": "InternsDetails",
+					"target": "InternsDetails"
+				}
+			],
+			"targets": {
+				"InternsList": {
+					"type": "Component",
+					"id": "InternsList",
+					"name": "sap.fe.templates.ListReport",
+					"options": {
+						"settings": {
+							"entitySet": "Interns",
+							"initialLoad": true,
+							"navigation": {
+								"Interns": {
+									"detail": {
+										"route": "InternsDetails"
+									}
+								}
+							}
+						}
+					}
+				},
+				"InternsDetails": {
+					"type": "Component",
+					"id": "InternsDetailsList",
+					"name": "sap.fe.templates.ObjectPage",
+					"options": {
+						"settings": {
+							"entitySet": "Interns"
+						}
+					}
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"fullWidth": false
+	},
+	"sap.fiori": {
+		"registrationIds": [],
+		"archeType": "transactional"
+	}
+}
