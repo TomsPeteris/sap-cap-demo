@@ -1,145 +1,145 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
     <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
-        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1" />
     </edmx:Reference>
     <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
-        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
     </edmx:Reference>
     <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
-        <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+        <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1" />
     </edmx:Reference>
     <edmx:DataServices>
         <Schema Namespace="InternsService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
             <EntityContainer Name="EntityContainer">
                 <EntitySet Name="Interns" EntityType="InternsService.Interns">
-                    <NavigationPropertyBinding Path="practice" Target="Practices"/>
-                    <NavigationPropertyBinding Path="mentor" Target="Mentors"/>
+                    <NavigationPropertyBinding Path="practice" Target="Practices" />
+                    <NavigationPropertyBinding Path="mentor" Target="Mentors" />
                 </EntitySet>
                 <EntitySet Name="Mentors" EntityType="InternsService.Mentors">
-                    <NavigationPropertyBinding Path="practice" Target="Practices"/>
-                    <NavigationPropertyBinding Path="interns" Target="Interns"/>
+                    <NavigationPropertyBinding Path="practice" Target="Practices" />
+                    <NavigationPropertyBinding Path="interns" Target="Interns" />
                 </EntitySet>
-                <EntitySet Name="Practices" EntityType="InternsService.Practices"/>
+                <EntitySet Name="Practices" EntityType="InternsService.Practices" />
             </EntityContainer>
             <EntityType Name="Interns">
                 <Key>
-                    <PropertyRef Name="ID"/>
+                    <PropertyRef Name="ID" />
                 </Key>
-                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
-                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
-                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
-                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
-                <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
-                <Property Name="name" Type="Edm.String"/>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7" />
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255" />
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7" />
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255" />
+                <Property Name="ID" Type="Edm.Int32" Nullable="false" />
+                <Property Name="name" Type="Edm.String" />
                 <NavigationProperty Name="practice" Type="InternsService.Practices">
-                    <ReferentialConstraint Property="practice_ID" ReferencedProperty="ID"/>
+                    <ReferentialConstraint Property="practice_ID" ReferencedProperty="ID" />
                 </NavigationProperty>
-                <Property Name="practice_ID" Type="Edm.Int32"/>
+                <Property Name="practice_ID" Type="Edm.Int32" />
                 <NavigationProperty Name="mentor" Type="InternsService.Mentors" Partner="interns">
-                    <ReferentialConstraint Property="mentor_ID" ReferencedProperty="ID"/>
+                    <ReferentialConstraint Property="mentor_ID" ReferencedProperty="ID" />
                 </NavigationProperty>
-                <Property Name="mentor_ID" Type="Edm.Int32"/>
+                <Property Name="mentor_ID" Type="Edm.Int32" />
             </EntityType>
             <EntityType Name="Mentors">
                 <Key>
-                    <PropertyRef Name="ID"/>
+                    <PropertyRef Name="ID" />
                 </Key>
-                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
-                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
-                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
-                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
-                <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
-                <Property Name="name" Type="Edm.String"/>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7" />
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255" />
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7" />
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255" />
+                <Property Name="ID" Type="Edm.Int32" Nullable="false" />
+                <Property Name="name" Type="Edm.String" />
                 <NavigationProperty Name="practice" Type="InternsService.Practices">
-                    <ReferentialConstraint Property="practice_ID" ReferencedProperty="ID"/>
+                    <ReferentialConstraint Property="practice_ID" ReferencedProperty="ID" />
                 </NavigationProperty>
-                <Property Name="practice_ID" Type="Edm.Int32"/>
-                <NavigationProperty Name="interns" Type="Collection(InternsService.Interns)" Partner="mentor"/>
+                <Property Name="practice_ID" Type="Edm.Int32" />
+                <NavigationProperty Name="interns" Type="Collection(InternsService.Interns)" Partner="mentor" />
             </EntityType>
             <EntityType Name="Practices">
                 <Key>
-                    <PropertyRef Name="ID"/>
+                    <PropertyRef Name="ID" />
                 </Key>
-                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
-                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
-                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
-                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
-                <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
-                <Property Name="name" Type="Edm.String"/>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7" />
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255" />
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7" />
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255" />
+                <Property Name="ID" Type="Edm.Int32" Nullable="false" />
+                <Property Name="name" Type="Edm.String" />
             </EntityType>
             <Annotations Target="InternsService.Interns/createdAt">
-                <Annotation Term="UI.HiddenFilter" Bool="true"/>
-                <Annotation Term="Core.Immutable" Bool="true"/>
-                <Annotation Term="Core.Computed" Bool="true"/>
-                <Annotation Term="Common.Label" String="{i18n>CreatedAt}"/>
-                </Annotations>
-                <Annotations Target="InternsService.Interns/createdBy">
-                    <Annotation Term="UI.HiddenFilter" Bool="true"/>
-                    <Annotation Term="Core.Immutable" Bool="true"/>
-                    <Annotation Term="Core.Computed" Bool="true"/>
-                    <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
-                        <Annotation Term="Common.Label" String="{i18n>CreatedBy}"/>
-                        </Annotations>
-                        <Annotations Target="InternsService.Interns/modifiedAt">
-                            <Annotation Term="UI.HiddenFilter" Bool="true"/>
-                            <Annotation Term="Core.Computed" Bool="true"/>
-                            <Annotation Term="Common.Label" String="{i18n>ChangedAt}"/>
-                            </Annotations>
-                            <Annotations Target="InternsService.Interns/modifiedBy">
-                                <Annotation Term="UI.HiddenFilter" Bool="true"/>
-                                <Annotation Term="Core.Computed" Bool="true"/>
-                                <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
-                                    <Annotation Term="Common.Label" String="{i18n>ChangedBy}"/>
-                                    </Annotations>
-                                    <Annotations Target="InternsService.Mentors/createdAt">
-                                        <Annotation Term="UI.HiddenFilter" Bool="true"/>
-                                        <Annotation Term="Core.Immutable" Bool="true"/>
-                                        <Annotation Term="Core.Computed" Bool="true"/>
-                                        <Annotation Term="Common.Label" String="{i18n>CreatedAt}"/>
-                                        </Annotations>
-                                        <Annotations Target="InternsService.Mentors/createdBy">
-                                            <Annotation Term="UI.HiddenFilter" Bool="true"/>
-                                            <Annotation Term="Core.Immutable" Bool="true"/>
-                                            <Annotation Term="Core.Computed" Bool="true"/>
-                                            <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
-                                                <Annotation Term="Common.Label" String="{i18n>CreatedBy}"/>
-                                                </Annotations>
-                                                <Annotations Target="InternsService.Mentors/modifiedAt">
-                                                    <Annotation Term="UI.HiddenFilter" Bool="true"/>
-                                                    <Annotation Term="Core.Computed" Bool="true"/>
-                                                    <Annotation Term="Common.Label" String="{i18n>ChangedAt}"/>
-                                                    </Annotations>
-                                                    <Annotations Target="InternsService.Mentors/modifiedBy">
-                                                        <Annotation Term="UI.HiddenFilter" Bool="true"/>
-                                                        <Annotation Term="Core.Computed" Bool="true"/>
-                                                        <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
-                                                            <Annotation Term="Common.Label" String="{i18n>ChangedBy}"/>
-                                                            </Annotations>
-                                                            <Annotations Target="InternsService.Practices/createdAt">
-                                                                <Annotation Term="UI.HiddenFilter" Bool="true"/>
-                                                                <Annotation Term="Core.Immutable" Bool="true"/>
-                                                                <Annotation Term="Core.Computed" Bool="true"/>
-                                                                <Annotation Term="Common.Label" String="{i18n>CreatedAt}"/>
-                                                                </Annotations>
-                                                                <Annotations Target="InternsService.Practices/createdBy">
-                                                                    <Annotation Term="UI.HiddenFilter" Bool="true"/>
-                                                                    <Annotation Term="Core.Immutable" Bool="true"/>
-                                                                    <Annotation Term="Core.Computed" Bool="true"/>
-                                                                    <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
-                                                                        <Annotation Term="Common.Label" String="{i18n>CreatedBy}"/>
-                                                                        </Annotations>
-                                                                        <Annotations Target="InternsService.Practices/modifiedAt">
-                                                                            <Annotation Term="UI.HiddenFilter" Bool="true"/>
-                                                                            <Annotation Term="Core.Computed" Bool="true"/>
-                                                                            <Annotation Term="Common.Label" String="{i18n>ChangedAt}"/>
-                                                                            </Annotations>
-                                                                            <Annotations Target="InternsService.Practices/modifiedBy">
-                                                                                <Annotation Term="UI.HiddenFilter" Bool="true"/>
-                                                                                <Annotation Term="Core.Computed" Bool="true"/>
-                                                                                <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
-                                                                                    <Annotation Term="Common.Label" String="{i18n>ChangedBy}"/>
-                                                                                    </Annotations>
-                                                                                </Schema>
-                                                                            </edmx:DataServices>
-                                                                        </edmx:Edmx>
+                <Annotation Term="UI.HiddenFilter" Bool="true" />
+                <Annotation Term="Core.Immutable" Bool="true" />
+                <Annotation Term="Core.Computed" Bool="true" />
+                <Annotation Term="Common.Label" String="{i18n>CreatedAt}" />
+            </Annotations>
+            <Annotations Target="InternsService.Interns/createdBy">
+                <Annotation Term="UI.HiddenFilter" Bool="true" />
+                <Annotation Term="Core.Immutable" Bool="true" />
+                <Annotation Term="Core.Computed" Bool="true" />
+                <Annotation Term="Core.Description" String="{i18n>UserID.Description}" />
+                <Annotation Term="Common.Label" String="{i18n>CreatedBy}" />
+            </Annotations>
+            <Annotations Target="InternsService.Interns/modifiedAt">
+                <Annotation Term="UI.HiddenFilter" Bool="true" />
+                <Annotation Term="Core.Computed" Bool="true" />
+                <Annotation Term="Common.Label" String="{i18n>ChangedAt}" />
+            </Annotations>
+            <Annotations Target="InternsService.Interns/modifiedBy">
+                <Annotation Term="UI.HiddenFilter" Bool="true" />
+                <Annotation Term="Core.Computed" Bool="true" />
+                <Annotation Term="Core.Description" String="{i18n>UserID.Description}" />
+                <Annotation Term="Common.Label" String="{i18n>ChangedBy}" />
+            </Annotations>
+            <Annotations Target="InternsService.Mentors/createdAt">
+                <Annotation Term="UI.HiddenFilter" Bool="true" />
+                <Annotation Term="Core.Immutable" Bool="true" />
+                <Annotation Term="Core.Computed" Bool="true" />
+                <Annotation Term="Common.Label" String="{i18n>CreatedAt}" />
+            </Annotations>
+            <Annotations Target="InternsService.Mentors/createdBy">
+                <Annotation Term="UI.HiddenFilter" Bool="true" />
+                <Annotation Term="Core.Immutable" Bool="true" />
+                <Annotation Term="Core.Computed" Bool="true" />
+                <Annotation Term="Core.Description" String="{i18n>UserID.Description}" />
+                <Annotation Term="Common.Label" String="{i18n>CreatedBy}" />
+            </Annotations>
+            <Annotations Target="InternsService.Mentors/modifiedAt">
+                <Annotation Term="UI.HiddenFilter" Bool="true" />
+                <Annotation Term="Core.Computed" Bool="true" />
+                <Annotation Term="Common.Label" String="{i18n>ChangedAt}" />
+            </Annotations>
+            <Annotations Target="InternsService.Mentors/modifiedBy">
+                <Annotation Term="UI.HiddenFilter" Bool="true" />
+                <Annotation Term="Core.Computed" Bool="true" />
+                <Annotation Term="Core.Description" String="{i18n>UserID.Description}" />
+                <Annotation Term="Common.Label" String="{i18n>ChangedBy}" />
+            </Annotations>
+            <Annotations Target="InternsService.Practices/createdAt">
+                <Annotation Term="UI.HiddenFilter" Bool="true" />
+                <Annotation Term="Core.Immutable" Bool="true" />
+                <Annotation Term="Core.Computed" Bool="true" />
+                <Annotation Term="Common.Label" String="{i18n>CreatedAt}" />
+            </Annotations>
+            <Annotations Target="InternsService.Practices/createdBy">
+                <Annotation Term="UI.HiddenFilter" Bool="true" />
+                <Annotation Term="Core.Immutable" Bool="true" />
+                <Annotation Term="Core.Computed" Bool="true" />
+                <Annotation Term="Core.Description" String="{i18n>UserID.Description}" />
+                <Annotation Term="Common.Label" String="{i18n>CreatedBy}" />
+            </Annotations>
+            <Annotations Target="InternsService.Practices/modifiedAt">
+                <Annotation Term="UI.HiddenFilter" Bool="true" />
+                <Annotation Term="Core.Computed" Bool="true" />
+                <Annotation Term="Common.Label" String="{i18n>ChangedAt}" />
+            </Annotations>
+            <Annotations Target="InternsService.Practices/modifiedBy">
+                <Annotation Term="UI.HiddenFilter" Bool="true" />
+                <Annotation Term="Core.Computed" Bool="true" />
+                <Annotation Term="Core.Description" String="{i18n>UserID.Description}" />
+                <Annotation Term="Common.Label" String="{i18n>ChangedBy}" />
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

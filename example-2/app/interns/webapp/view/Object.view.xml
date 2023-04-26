@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="ims.interns.controller.Object"
+    controllerName="ecenta.ims.interns.controller.Object"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:semantic="sap.f.semantic">
@@ -20,10 +20,6 @@
         <semantic:headerContent>
             <ObjectNumber />
         </semantic:headerContent>
-
-        <semantic:sendEmailAction>
-            <semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
-        </semantic:sendEmailAction>
 
     </semantic:SemanticPage>
 

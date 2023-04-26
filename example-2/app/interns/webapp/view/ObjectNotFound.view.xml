@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="ims.interns.controller.NotFound"
+    controllerName="ecenta.ims.interns.controller.NotFound"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc">
 

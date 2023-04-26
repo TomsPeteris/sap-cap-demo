@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="ims.interns.controller.Worklist"
+    controllerName="ecenta.ims.interns.controller.Worklist"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:semantic="sap.f.semantic">
@@ -11,6 +11,7 @@
 
         <semantic:titleHeading>
             <Title
+                id="title"
                 text="{i18n>worklistTitle}"
                 level="H2"/>
         </semantic:titleHeading>
@@ -33,18 +34,19 @@
                 updateFinished=".onUpdateFinished">
 
                 <headerToolbar>
-                    <OverflowToolbar>
+                    <OverflowToolbar id="headerOverflowToolbar">
                         <Title
                             id="tableHeader"
                             text="{worklistView>/worklistTableTitle}"
                             level="H3"/>
-                        <ToolbarSpacer />
+                        <ToolbarSpacer id="headerToolbarSpacer" />
                         <SearchField
                             id="searchField"
                             tooltip="{i18n>worklistSearchTooltip}"
                             search=".onSearch">
                             <layoutData>
                                 <OverflowToolbarLayoutData
+                                    id="searchFieldLayoutData"
                                     maxWidth="200px"
                                     priority="NeverOverflow"/>
                             </layoutData>
@@ -53,31 +55,45 @@
                 </headerToolbar>
 
                 <columns>
+                    <Column id="idColumn">
+                        <Text text="{i18n>tableIdColumnTitle}" id="idColumnTitle"/>
+                    </Column>
                     <Column id="nameColumn">
                         <Text text="{i18n>tableNameColumnTitle}" id="nameColumnTitle"/>
                     </Column>
-                    <Column id="unitNumberColumn" hAlign="End">
-                        <Text text="{i18n>tableUnitNumberColumnTitle}" id="unitNumberColumnTitle"/>
+                    <Column id="praticeColumn">
+                        <Text text="{i18n>tablePracticeColumnTitle}" id="practiceColumnTitle"/>
+                    </Column>
+                    <Column id="mentorColumn">
+                        <Text text="{i18n>tableMentorColumnTitle}" id="mentorColumnTitle"/>
                     </Column>
                 </columns>
 
                 <items>
                     <ColumnListItem
+                        id="tableListItemTemplate"
                         type="Navigation"
                         press=".onPress">
                         <cells>
                             <ObjectIdentifier
+                                id="idObjectIdentifier"
                                 title="{ID}"/>
-                            <ObjectNumber />
+                            <ObjectIdentifier
+                                id="nameObjectIdentifier"
+                                title="{name}"/>
+                            <ObjectIdentifier
+                                id="practiceObjectIdentifier"
+                                binding="{practice}"
+                                title="{name}"/>
+                            <ObjectIdentifier
+                                id="mentorObjectIdentifier"
+                                binding="{mentor}"
+                                title="{name}"/>
                         </cells>
                     </ColumnListItem>
                 </items>
             </Table>
         </semantic:content>
-
-        <semantic:sendEmailAction>
-            <semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
-        </semantic:sendEmailAction>
 
     </semantic:SemanticPage>
 
