@@ -1,0 +1,1 @@
+using InternsService as service from '../../srv/interns-service';
