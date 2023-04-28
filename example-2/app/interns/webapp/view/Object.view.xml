@@ -13,12 +13,13 @@
 
         <semantic:titleHeading>
             <Title
+                id="title"
                 text="{ID}"
                 level="H2"/>
         </semantic:titleHeading>
 
         <semantic:headerContent>
-            <ObjectNumber />
+            <ObjectNumber id="objectId" />
         </semantic:headerContent>
 
     </semantic:SemanticPage>
